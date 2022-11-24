@@ -1,0 +1,6 @@
+torch
+torchvision
+Pillow~=9.3.0
+gradio~=3.10.1
+pix2tex~=0.0.29
+numpy~=1.23.4

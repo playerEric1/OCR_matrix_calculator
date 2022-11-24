@@ -1,0 +1,27 @@
+#Loading the Dataset
+x = []
+y = []
+datadir = 'data/dataset'
+for folder in os.listdir(datadir):
+    path = os.path.join(datadir, folder)
+    for images in os.listdir(path):
+        img = cv2.imread(os.path.join(path, images))
+        x.append(img)
+        y.append(folder)
+
+print(len(x))
+print(len(y))
+print(f'labels : {list(set(y))}')
+
+#Visualizing Images in the Dataset
+figure = plt.figure(figsize=(10, 10))
+j = 0
+for i in list(set(y)):
+    idx = y.index(i)
+    img = x[idx]
+    img = cv2.resize(img, (256, 256))
+    figure.add_subplot(5, 5, j+1)
+    plt.imshow(img)
+    plt.axis('off')
+    plt.title(i)
+    j += 1
